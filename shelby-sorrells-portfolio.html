@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shelby Sorrells – Operations case studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F1F4F7;
+    --surface: #FFFFFF;
+    --ink: #16202A;
+    --muted: #54616F;
+    --line: #C5CED8;
+    --accent: #2B3FC2;
+    --mark: #E8A91D;
+    --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0F161D;
+      --surface: #17212B;
+      --ink: #E8EDF2;
+      --muted: #9CA9B7;
+      --line: #2C3A48;
+      --accent: #93A3FF;
+      --mark: #F0B429;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0F161D;
+    --surface: #17212B;
+    --ink: #E8EDF2;
+    --muted: #9CA9B7;
+    --line: #2C3A48;
+    --accent: #93A3FF;
+    --mark: #F0B429;
+    color-scheme: dark;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  header.top { padding: 1.75rem 0 0; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: 0.95rem; color: var(--muted); }
+  header.top strong { color: var(--ink); font-weight: 600; }
+
+  .hero { padding: 5rem 0 4rem; }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.4rem, 6.4vw, 4.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.75rem;
+    max-width: 17ch;
+  }
+  .hero p { max-width: 38rem; margin: 0 0 0.9rem; color: var(--muted); font-size: 1.15rem; }
+
+  .studies { position: relative; padding-bottom: 1rem; }
+  .studies::before {
+    content: "";
+    position: absolute;
+    left: 7px; top: 0.6rem; bottom: 0;
+    width: 2px;
+    background: var(--line);
+  }
+  article.study { position: relative; padding: 0 0 4.5rem 2.75rem; }
+  article.study::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.55rem;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 3px solid var(--accent);
+  }
+  article.study h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.4rem;
+    max-width: 24ch;
+  }
+  .context { margin: 0 0 1.75rem; color: var(--muted); font-size: 0.95rem; }
+
+  .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); overflow: hidden; }
+  .flow > div { padding: 1.25rem 1.35rem 1.4rem; }
+  .flow > div + div { border-left: 1px solid var(--line); }
+  .flow h3 { font-family: var(--display); font-weight: 600; font-size: 1.05rem; margin: 0 0 0.55rem; }
+  .flow > div:last-child h3 { color: var(--accent); }
+  .flow p, .flow ul { margin: 0; font-size: 0.98rem; line-height: 1.55; }
+  .flow ul { padding-left: 1.1rem; }
+  .flow li + li { margin-top: 0.4rem; }
+
+  .also { padding: 1rem 0 4.5rem; }
+  .also h2 { font-family: var(--display); font-size: 1.6rem; margin: 0 0 1.25rem; }
+  .also dl { margin: 0; display: grid; grid-template-columns: 14rem 1fr; gap: 0; border-top: 1px solid var(--line); }
+  .also dt, .also dd { margin: 0; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .also dt { font-weight: 600; padding-right: 1.5rem; }
+  .also dd { color: var(--muted); }
+
+  .contact { padding: 0 0 5rem; }
+  .contact .box { border-left: 6px solid var(--mark); padding: 0.4rem 0 0.4rem 1.5rem; max-width: 40rem; }
+  .contact p { margin: 0 0 0.75rem; }
+  .contact .mail { font-family: var(--display); font-weight: 600; font-size: 1.35rem; }
+
+  @media (max-width: 760px) {
+    .hero { padding: 3.5rem 0 3rem; }
+    .flow { grid-template-columns: 1fr; }
+    .flow > div + div { border-left: 0; border-top: 1px solid var(--line); }
+    article.study { padding-left: 2.25rem; }
+    .also dl { grid-template-columns: 1fr; }
+    .also dt { border-bottom: 0; padding-bottom: 0; }
+    .also dd { padding-top: 0.25rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <strong>Shelby Sorrells</strong>
+    <span>London · MPA candidate, LSE (July 2027)</span>
+  </header>
+
+  <section class="hero">
+    <h1>I find where a team loses time, then build what fixes it.</h1>
+    <p>Three pieces of operations work from my internships and projects: a measurement system, a set of audits, and a pair of international workshops. Each one follows the same path from problem to what I did to what changed.</p>
+    <p>I studied Psychology and Criminology at the University of Florida and am now completing a Master of Public Administration at LSE.</p>
+  </section>
+
+  <main class="studies">
+
+    <article class="study">
+      <h2>A shared way to measure a communications strategy</h2>
+      <p class="context">Chapter Zero Alliance · Communications Intern · July–September 2026</p>
+      <div class="flow">
+        <div>
+          <h3>The problem</h3>
+          <p>The organisation had a new 2026–2027 Communications Strategy and needed a consistent way to benchmark progress against it.</p>
+        </div>
+        <div>
+          <h3>What I did</h3>
+          <p>Built a tracker of 11 KPIs, split across two tabs: Strategy Adoption (is the strategy being put into practice?) and Comms Performance (is the communications work performing?).</p>
+        </div>
+        <div>
+          <h3>What changed</h3>
+          <p>The team has one place to see progress on the strategy, with adoption and performance kept separate so they can tell the two apart.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="study">
+      <h2>Finding gaps across a global network</h2>
+      <p class="context">Chapter Zero Alliance · Communications Intern · July–September 2026</p>
+      <div class="flow">
+        <div>
+          <h3>The problem</h3>
+          <p>After a rebrand, it was unclear how consistently the new identity showed up across 35+ national chapters, in AI and search results, and on the website.</p>
+        </div>
+        <div>
+          <h3>What I did</h3>
+          <ul>
+            <li>Audited the branding of 35+ chapters and categorised them by hosting type.</li>
+            <li>Ran an AI visibility audit of how the rebrand appeared across AI and search platforms.</li>
+            <li>Audited the website for accuracy and checked ambassador biographies.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What changed</h3>
+          <p>The AI audit found a 43% post-rebrand name recognition gap, which informed follow-up messaging priorities. The website audit flagged outdated “70 countries” references, and ambassador biographies were corrected.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="study">
+      <h2>Running international workshops end to end</h2>
+      <p class="context">Living Imaginaries · Operations and Engagement Coordinator (temporary) · September 2025–March 2026</p>
+      <div class="flow">
+        <div>
+          <h3>The problem</h3>
+          <p>Two marine governance workshops brought together 40+ researchers, policymakers, artists and activists across the Netherlands and the UK, and each needed to run smoothly for a mixed group.</p>
+        </div>
+        <div>
+          <h3>What I did</h3>
+          <ul>
+            <li>Coordinated participants and schedules, prepared materials, and documented each event afterwards.</li>
+            <li>Helped set up internal infrastructure, including payroll systems and a trademark application.</li>
+            <li>Wrote a brand guide covering colours, fonts and imagery.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What changed</h3>
+          <p>Both workshops were delivered with records kept for the team, and the organisation gained operational groundwork it didn’t have before: payroll, a trademark filing and a brand guide.</p>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <section class="also" aria-labelledby="also-h">
+    <h2 id="also-h">More coordination work</h2>
+    <dl>
+      <dt>Lobby day, 32 Senate offices</dt>
+      <dd>At Dream.Org, managed a multi-stakeholder lobby day, coordinating timelines, deliverables and competing priorities across the offices.</dd>
+      <dt>Public Sphere Journal</dt>
+      <dd>Senior Print Editor for the LSE journal, 2025–2026.</dd>
+      <dt>Data visualisation project</dt>
+      <dd>Building a public-facing website with data visualisations for an LSE course, Automated Data Visualisation for Policymaking (in progress).</dd>
+    </dl>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-h">
+    <div class="box">
+      <h2 id="contact-h" style="font-family: var(--display); font-size: 1.6rem; margin: 0 0 0.75rem;">Get in touch</h2>
+      <p>I’m interested in how design and research communities work: how programmes get delivered, how feedback gets gathered, and how good practice spreads. Happy to share more detail on any of the work above.</p>
+      <p class="mail"><a href="mailto:S.Sorrells@lse.ac.uk">S.Sorrells@lse.ac.uk</a></p>
+    </div>
+  </section>
+</div>
+</body>
+</html>
